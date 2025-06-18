@@ -2,6 +2,10 @@ import os
 import streamlit as st
 from crewai import Agent, Task, Crew, Process, LLM
 
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 clarifai_llm = LLM(
     model="openai/deepseek-ai/deepseek-chat/models/DeepSeek-R1-Distill-Qwen-7B",
     base_url="https://api.clarifai.com/v2/ext/openai/v1",
